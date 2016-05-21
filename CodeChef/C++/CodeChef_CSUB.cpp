@@ -19,30 +19,14 @@ typedef pair<int,int> ii;
 #define pb push_back
 #define all(x) x.begin(),x.end()
 
-int nodddiv(int n){
-	int cnt=0;
-	if(n==1) return 1;
-	FOR(i,1,sqrt(n)){
-		if(n%i==0){
-			if(i%2==1 && i==n/i) cnt+=i;
-			else{
-				if(i%2==1){ cnt+=i;}
-				if((n/i)%2==1){ cnt+=(n/i);}	
-			}
-		}
-	}
-	return cnt;
-}
-
 int main(){
 	boost;
-	int l,r;
-	ull cnt;
-	// cout << nodddiv(9) << endl;
+	int s,c;
+	string a;
 	tcase{
-		cnt=0;
-		cin >> l >> r;
-		FOR(i,l,r){ cnt+=nodddiv(i); /*cout << nodddiv(i) << endl;*/}
-		cout << cnt << endl;
+		cin >> s;
+		cin >> a;
+		c = count(all(a),'1');
+		cout << c*(c+1)/2 << endl;
 	}
 }
