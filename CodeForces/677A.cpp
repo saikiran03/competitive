@@ -6,7 +6,6 @@ typedef unsigned long long ull;
 typedef vector<int> vi;
 typedef vector<vi> vvi;
 typedef pair<int,int> ii;
-typedef vector<ii> vii;
 typedef map<int,int> mpii;
 
 #define boost ios_base::sync_with_stdio(false); cin.tie(0);
@@ -20,8 +19,6 @@ typedef map<int,int> mpii;
 #define mems(a,b) memset(a, (b), sizeof a)
 #define mp make_pair
 #define pb push_back
-#define Fs first
-#define Se second
 #define sz(a) (int)(a.size())
 #define present(c,x) (c.find(x)!=c.end())
 #define cpresent(c,x) (find(all(c),x) != c.end())
@@ -31,30 +28,16 @@ typedef map<int,int> mpii;
 const int mod = 1000000007;
 const int inf = INT_MAX;
 const int pi = acos(-1.0);
-const float EPS = 1e-9;
-
-int a[100005];
+const int EPS = 1e-9;
 
 int main(){
 	boost;
-	int n, k, h, p=0, ch=0; ull time=0;
-	
-	cin >> n >> h >> k;
-	rep(i,n)
-		cin >> a[i];
-		
-	while(p<n || ch!=0){
-		while(p<n && ch+a[p]<=h){
-			ch+=a[p]; 
-			p++;
-		}
-		if(ch>k){
-			time += ch/k;
-			ch %= k;
-		}else{
-			time++;
-			ch = 0;
-		}
+	int n,h,t,sol=0;
+	cin >> n >> h;
+	sol = n;
+	rep(i,n){
+		cin >> t;
+		if(t>h) sol++;
 	}
-	cout << time << endl;
+	cout << sol << endl;
 }
