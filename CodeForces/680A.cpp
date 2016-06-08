@@ -31,44 +31,25 @@ typedef map<int,int> mpii;
 const int mod = 1000000007;
 const int inf = INT_MAX;
 const int pi = acos(-1.0);
-const int EPS = 1e-9;
-
-int matrix[1005][1005];
+const float EPS = 1e-9;
 
 int main(){
 	boost;
+	// rf; wf;
+	mpii hh;
+	int t; ll sol=0;
 	
-	int n,m, a,b, q;
-	cin >> n >> m;
-	
-	rep(i,n)
-		rep(j,m)
-			cin >> matrix[i][j];
-	
-	cin >> q;
-	rep(ix,q){
-		cin >> a >> b;
-		
-		if(a==1 && b==1)
-			cout << 0 << endl;
-		else{
-			int sol = inf;
-			rep(i,n-a+1){
-				rep(j,m-b+1){
-					int mab = -inf;
-					rep(ia, a)
-						rep(ib, b)
-							mab = max(matrix[i+ia][j+ib], mab);
-					
-					int d = 0;		
-					rep(ia, a)
-						rep(ib, b)
-							d += (mab-matrix[i+ia][j+ib]);
-					sol = min(sol, d);
-				}
-			}
-			
-			cout << sol << endl;
-		}
+	rep(i,5){
+		cin >> t;
+		hh[t]++;
+		sol += t;
 	}
+		
+	ll ans = 0;
+	tr(it, hh){
+		if(it->second>=2)
+			ans = max((ll)it->first * it->second, ans);
+	}
+	
+	cout << sol - ans << endl;	
 }
